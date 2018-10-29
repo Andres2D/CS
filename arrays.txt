@@ -1,0 +1,41 @@
+arreglo[pos];
+
+arreglobidimensional[fila][columna];
+
+Declaracion de arreglos:
+int[] arreglo = new int[tamaño];
+
+arreglo[pos] = valor;
+Console.WriteLine(arreglo[pos]);
+
+char[] vocales = new char[] { 'a', 'e', 'i', 'o', 'u' };
+Console.WriteLine(vocales[2]);
+
+double[] numeros = { 1.1, 2.2, 3.3, 4.4 };
+Console.WriteLine("Tamaño del array: {0}",numeros.Length);
+
+Console.WriteLine("Ultimo valor: {0}", numeros[numeros.Length-1]);
+
+------------------------------
+
+Iteracion arreglos
+
+Console.WriteLine("Iterar arreglo con ciclo froeach");
+    foreach(int num in arreglo) // foreach = Para cada
+    {
+        Console.WriteLine("{0} ", num);
+    }
+
+-----------------------------
+Convertir tipos de variables
+
+int tam = Convert.ToInt32(Console.ReadLine());
+
+--------------------------------
+Metodos de la clase array
+
+*Copiar arreglo -> Array.copy(arregloacopiar, arreglovaciodondesecopia, cuantoselementosevanacopiar);
+
+*Invertir Arreglo -> Array.Reverse(arregloainvertir);
+
+*Ordenar Arreglo -> Array.Sort(list);

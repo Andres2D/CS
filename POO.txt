@@ -1,0 +1,171 @@
+Sintaxis de POO
+
+Ej:
+class rectangulo
+    {
+        //Propiedades
+        public int Base { get; set; }
+        public int Altura { get; set; }
+
+        //Metodos
+        public int CalcularArea()
+        {
+            return Base * Altura;
+        }
+    }
+
+
+class main(){
+    //Crear un objeto de tipo rectangulo
+        rectangulo rec = new rectangulo();
+        rec.Base = 10;
+        rec.Altura = 5;
+
+        Console.WriteLine("Rectangulo: {0} x {1} = {2}",rec.Base,rec.Altura,rec.CalcularArea());
+
+    //Sintaxis de inicializacion
+        rectangulo rect2 = new rectangulo { Base = 3, Altura = 4 };
+        Console.WriteLine("Rectangulo: {0} x {1} = {2}", rect2.Base, rect2.Altura, rect2.CalcularArea());
+}
+
+
+-------------------------------------
+
+Constructores
+    class CuentaBancaria
+    {
+        public string NoCuenta { get; set; }
+        public string Usuario { get; set; }
+        public decimal Saldo { get; set; }
+
+        public CuentaBancaria(string noCuenta)
+        {
+            NoCuenta = noCuenta;
+        }
+        public CuentaBancaria(string noCuenta, string usuario) : this(noCuenta)
+        {
+            Usuario = usuario;
+        }
+        public CuentaBancaria(string noCuenta, string usuario, decimal saldo) : this(noCuenta,usuario)
+        {
+            Saldo = saldo;
+        }
+
+        //Constructor vacio
+        public CuentaBancaria() { }
+
+    }
+
+    en el main:
+     {
+            CuentaBancaria c1 = new CuentaBancaria("879879");
+            Console.WriteLine("NoCuenta: {0}, Usuario: {1}, Saldo: {2}", c1.NoCuenta, c1.Usuario, c1.Saldo);
+
+            CuentaBancaria c2 = new CuentaBancaria("000002","Jona Morris");
+            Console.WriteLine("NoCuenta: {0}, Usuario: {1}, Saldo: {2}", c2.NoCuenta, c2.Usuario, c2.Saldo);
+
+            CuentaBancaria c3 = new CuentaBancaria("000002", "Jorge Morris",1260m);
+            Console.WriteLine("NoCuenta: {0}, Usuario: {1}, Saldo: {2}", c3.NoCuenta, c3.Usuario, c3.Saldo);
+
+        }
+
+-----------------------------------
+
+Propiedades completas{
+    //Full properties -> para realizar validaciones en las propiedades
+
+        //Backing field
+        private decimal _saldo;
+
+        //Full property
+        public decimal Saldo
+        {
+            get { return _saldo; }
+            set
+            {
+                //Evitar que el saldo sea negativo, con operador ternario
+                _saldo = value < 0 ? 0 : value;
+            }
+        }
+
+        en el main:
+        Console.WriteLine(Objeto.ToString());
+}
+
+-------------------------------------------
+
+Metodo para imprimir un objeto como string
+
+public override string ToString()
+    {
+        return string.Format("NoCuenta: {0}, Usuario: {1}, Saldo: {2}", NoCuenta, Usuario, Saldo);
+    }
+
+en el main:
+    Console.WriteLine(cuenta1.ToString());
+
+-------------------------------------------------
+
+Ejemplos de Metodos
+ //Metodos de instancia
+        public void Retirar(decimal cantidad)
+        {
+            if (cantidad > Saldo)
+            {
+                Console.WriteLine("Saldo Insuficiente");
+                return;
+            }
+            Saldo -= cantidad;
+        }
+
+        public void Depositar(decimal cantidad)
+        {
+            Saldo += cantidad;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("NoCuenta: {0}, Usuario: {1}, Saldo: ${2}", NoCuenta, Usuario, Saldo);
+        }
+
+en el main:
+ Console.WriteLine("Depositar $70 en cuenta 1");
+            cuenta1.Depositar(70);
+
+            Console.WriteLine("Retirar $20 en cuenta 2");
+            cuenta2.Retirar(20);
+
+------------------------------------------------------------
+
+Propiedades y metodos estaticos
+
+//Propiedad estatica
+        public static string Banco { get; set; }
+
+ //Metodos estaticos
+        public static void AsignarBanco(string banco)
+        {
+            Console.WriteLine("Asignando nuevo banco...");
+            Banco = banco;
+
+        }
+
+En el main:
+    CuentaBancaria.AsignarBanco("Otro Banco"); -> no se instancia, sino que se llama directamanete desde la clase
+    Console.WriteLine("Nuevo banco: {0}",CuentaBancaria.Banco);
+
+
+-----------------------------------------------------
+
+Encapsulamiento -> mecanismo para ocultar datos
+
+public = todos pueden acceder
+internal = todos dentro del mismo ensamblado pueden acceder
+protected = todas las subclases pueden accerder
+private = solo la clase actual puede acceder
+
+namespace -> contenedor de clases
+
+----------------------------------------------------------
+
+Acceder a otra clase o namespace -> using OtroNamespace;
