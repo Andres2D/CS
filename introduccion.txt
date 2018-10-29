@@ -1,0 +1,141 @@
+puede trabajar con archivos, bases de datos etc
+Aplicaciones web -> .NET web forms
+c# -> open source
+
+Lenguaje tipado
+POO
+soporta paradigmas de programacion
+common language runtime{
+    es una maquina virtual .NET
+}
+
+imprimir con consola
+{
+    Conosole.WriteLine("");
+    Console.WriteLine("int: {0}, short: {1}, byte: {2}, long: {3}", entero, s, b, largo);
+
+    Sin salto de linea: Console.Write();
+
+    salto de linea: Console.WriteLine("\n");
+
+    leer consola: -> string dato = Console.ReadLine();
+}
+
+Variables {
+    
+    int -> entero de 32 bits
+    short -> entero 16 bits
+    byte -> entero 8 bits
+    long -> entero 32 bits
+
+    float -> decimal -> = 0123f;
+    double -> decimal -> = 970;
+    decimal -> decimal -> = 231m;
+
+    char -> caracter -> = 'ABAB';
+    boolean -> booleano -> = true o false;
+
+    string -> cadena -> = ""
+}
+
+Operadores {
+    aritmeticos{
+        +,-,*,/,%
+    }
+    Ej: bool par = a % 2 == 0;
+
+    a++; => a = a+1;
+
+    comparadores{
+        a>b,a<b,a>=b,a<=b,a!=b
+    }
+}
+
+Condicionales{
+    ej:
+    int num = 3;
+            if(num > 5)
+            {
+                Console.WriteLine("Num es mayor que 5");
+            }
+            else
+            {
+                Console.WriteLine("Num no es mayor a 5");
+            }
+}
+
+switch{
+    Ej:
+    string codigo = "A9";
+            switch (codigo)
+            {
+                case "A1":
+                    Console.WriteLine("Producto 1");
+                    break;
+                case "A2":
+                    Console.WriteLine("Producto 2");
+                    break;
+                default:
+                    Console.WriteLine("Producto no encontrado");
+                    break;
+            }
+}
+
+ciclos{
+      //Ciclo for
+            for (int i=0;i<5;i++)
+            {
+                Console.WriteLine("conteo: {0}", i);
+            }
+
+            //Ciclo While
+            int n = 0;
+            while(n < 5)
+            {
+                Console.WriteLine("conteo w: {0}", n);
+                n++;
+            }
+
+            //Ciclo Do - While
+            int dw = 0;
+            do
+            {
+                Console.WriteLine("conteo dw: {0}", dw);
+                dw++;
+            } while (dw < 5);
+}
+
+Palabras Reservadas{
+            Console.WriteLine("Uso de Break");
+            for (int i = 0; i < 10; i++)
+            {
+                //Salir del ciclo antes de que termine
+                if (i == 5)
+                {
+                    break; //Terminar con el ciclo
+                }
+                Console.WriteLine("Valor del contador i: {0}",i);
+            }
+
+--------------------------------------------------------------------
+
+             Console.WriteLine("Uso de continue");
+            int n = 0;
+            while (n < 10)
+            {
+                if(n % 2 == 0)
+                {
+                    n++;
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Impares: {0}",n);
+                }
+                n++;
+            }
+}
+
+Lectura de datos por teclado{
+
+}
