@@ -1,0 +1,83 @@
+Una nueva clase es creada absoribiendo losmienbros de una clase existente
+Superclase -> Clase existente
+Subclase -> nueva clase creada
+en c# no se puede herencia multiple
+
+Relacion IS-A -> herencia
+
+*Sobreescritura de metodos
+public virtual void Metodo()
+    {
+
+    }
+
+*Heredar de Superclase
+class subclase : superclase{}
+
+*Heredar propiedades de la superclase en el contructor
+public Clase(tipo variable, tipo variable2,...) : base(propiedadsuperclase1, propiedadsuperclase2, ...)
+{
+    Variable = variable;
+    Variable2 = variable2;
+}
+
+*Editar metodo de superclase en subclase 
+    public override void Saludar()
+    {
+        ...
+    }
+
+--------------------------------------------------------
+
+Clases Abstractas -> no pueden se instanciadas, no se pueden crear objetos a partir de ella
+
+Declaracion:
+abstract class NombreClase
+{
+}
+
+Declaracion de propiedades:
+public abstract tipodato NombreDato { get; set; } -> significa que la propiedad no se puede definir aun,
+                                                     Solo se define en una subclase de esta superclase
+
+Luego en la subclase 
+ public override decimal NombreDato{ get; set;}
+
+
+Declaracion de metodos abstractos:
+public abstract void NombreMetodo(); -> solo se implementa en la subclase   
+
+---------------------------------------------------
+
+Clase Object, igualdad entre objetos
+
+*Equals() -> para comparar si dos objetos son iguales
+
+public override bool Equals(object obj)
+        {
+            if(obj == null)
+            {
+                return false;
+            }
+
+            Clase p = obj as Clase;
+            if(p == null)
+            {
+                return false;
+            }
+
+            return (this.propiedad1 == p.propiedad1) && (this.propiedad2 == p.propiedad2);
+        }
+
+public override int GetHashCode()
+        {
+            int hash = 17;
+            hash = (hash * 7) + Nombre.GetHashCode();
+            hash = (hash * 7) + Edad.GetHashCode();
+
+            return hash;
+        }
+
+En el main():
+
+Console.WriteLine(p1.Equals(p2));
